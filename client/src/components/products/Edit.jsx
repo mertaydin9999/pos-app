@@ -12,7 +12,7 @@ const Edit = () => {
     const getProducts = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/products/get-all"
+          import.meta.env.VITE_APP_SERVER_URL + "/api/products/get-all"
         );
         const data = await response.json();
         setProducts(data);
@@ -27,7 +27,7 @@ const Edit = () => {
     const getCategories = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/categories/get-all"
+          import.meta.env.VITE_APP_SERVER_URL + "/api/categories/get-all"
         );
         const data = await response.json();
         data &&
@@ -47,13 +47,16 @@ const Edit = () => {
   }, []);
   const onFinish = (values) => {
     try {
-      fetch("http://localhost:5000/api/products/update-product", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify({ ...values, productId: editingItem._id }),
-      });
+      fetch(
+        import.meta.env.VITE_APP_SERVER_URL + "/api/products/update-product",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify({ ...values, productId: editingItem._id }),
+        }
+      );
       message.success("Urun basariyla guncellendi");
       setProducts(
         products.map((product) => {
@@ -70,13 +73,16 @@ const Edit = () => {
   const deleteProduct = async (id) => {
     if (window.confirm("Emin misiniz?")) {
       try {
-        await fetch("http://localhost:5000/api/products/delete-product", {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify({ productId: id }),
-        });
+        await fetch(
+          import.meta.env.VITE_APP_SERVER_URL + "/api/products/delete-product",
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify({ productId: id }),
+          }
+        );
         message.success("Urun basariyla silindi");
         setProducts(products.filter((product) => product._id !== id));
       } catch (error) {

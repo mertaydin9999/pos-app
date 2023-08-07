@@ -234,10 +234,7 @@ const CartPage = () => {
       <Header />
       <div className="px-6">
         <Table
-          dataSource={cart.cartItems.map((item) => ({
-            ...item,
-            key: item._id, // Assuming 'id' is the unique identifier for each item
-          }))}
+          dataSource={cart.cartItems}
           columns={columns}
           bordered
           pagination={false}

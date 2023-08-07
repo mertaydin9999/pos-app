@@ -14,7 +14,7 @@ const HomePage = () => {
     const getProducts = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/products/get-all"
+          import.meta.env.VITE_APP_SERVER_URL + "/api/products/get-all"
         );
         const data = await response.json();
         setProducts(data);
@@ -29,7 +29,7 @@ const HomePage = () => {
     const getCategories = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/categories/get-all"
+          import.meta.env.VITE_APP_SERVER_URL + "/api/categories/get-all"
         );
         const data = await response.json();
         data &&

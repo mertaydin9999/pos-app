@@ -11,13 +11,16 @@ const Edit = ({
 
   const onFinish = (values) => {
     try {
-      fetch("http://localhost:5000/api/categories/update-category", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify({ ...values, categoryId: editingRow._id }),
-      });
+      fetch(
+        import.meta.env.VITE_APP_SERVER_URL + "/api/categories/update-category",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify({ ...values, categoryId: editingRow._id }),
+        }
+      );
       message.success("Kategori basariyla guncellendi");
       setCategories(
         categories.map((category) => {
@@ -34,13 +37,17 @@ const Edit = ({
   const deleteCategory = async (id) => {
     if (window.confirm("Emin misiniz?")) {
       try {
-        await fetch("http://localhost:5000/api/categories/delete-category", {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify({ categoryId: id }),
-        });
+        await fetch(
+          import.meta.env.VITE_APP_SERVER_URL +
+            "/api/categories/delete-category",
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify({ categoryId: id }),
+          }
+        );
         message.success("Kategori basariyla silindi");
         setCategories(categories.filter((category) => category._id !== id));
       } catch (error) {

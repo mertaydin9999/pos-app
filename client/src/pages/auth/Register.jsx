@@ -8,11 +8,14 @@ const Register = () => {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
+      const res = await fetch(
+        import.meta.env.VITE_APP_SERVER_URL + "/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        }
+      );
       if (res.status === 200) {
         message.success("Kayit Basarili");
         navigate("/login");
