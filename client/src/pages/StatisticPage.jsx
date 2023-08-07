@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "../components/Header/Header";
+import Header from "../components/header/Header";
 import { Table, Card, Button } from "antd";
 import StatisticCard from "../components/statistics/StatisticCard";
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header/Header";
+import Header from "../components/header/Header";
 import CartTotals from "../components/cart/CartTotals";
 import Categories from "../components/categories/Categories";
 import Products from "../components/products/Products";

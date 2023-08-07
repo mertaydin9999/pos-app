@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import Header from "../components/Header/Header";
+import Header from "../components/header/Header";
 import { Table, Card, Button, message, Input, Space } from "antd";
 import CreateBill from "../components/cart/CreateBill";
 import { useSelector, useDispatch } from "react-redux";

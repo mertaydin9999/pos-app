@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Header from "../components/Header/Header";
+import Header from "../components/header/Header";
 import { Table, Input, Space, Button } from "antd";
 import Highlighter from "react-highlight-words";
 import PrintBill from "../components/bills/PrintBill";
